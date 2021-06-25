@@ -14,7 +14,7 @@ c.unit_id(1)
 # managing TCP sessions with call to c.open()/c.close()
 c.open()
 
-regs = c.read_holding_registers(0, 2)
+regs = c.read_input_registers(0, 2)
 if regs:
     print(regs)
 else:
