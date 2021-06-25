@@ -1,6 +1,9 @@
 import RPi.GPIO as GPIO
 from pyModbusTCP.client import ModbusClient
 import time
+from datetime import datetime
+
+
 
 relay = 37
 
@@ -24,10 +27,13 @@ c.unit_id(1)
 while(1):
     try:
         # print("cetak")
+        now = datetime.now()
+
+        current_time = now.strftime("%H:%M:%S")
         regs = c.read_input_registers(0, 2)
 
         if regs:
-            print(regs)
+            print(current_time +" - " + regs)
             temp =  regs[0]/100
             rh = regs[1]/100
 
