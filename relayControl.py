@@ -33,8 +33,8 @@ while(1):
         regs = c.read_input_registers(0, 2)
 
         if regs:
-            print(current_time +" - " + regs)
-            
+            print(str(current_time) +" - " + str(regs))
+
             temp =  regs[0]/100
             rh = regs[1]/100
 
