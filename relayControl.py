@@ -10,43 +10,54 @@ GPIO.setup(relay, GPIO.OUT)
 
 # c = ModbusClient(host="192.168.0.7", auto_open=True, auto_close=True)
 
-c = ModbusClient()
-c.host("192.168.0.7")
-c.port(502)
-c.unit_id(1)
-# managing TCP sessions with call to c.open()/c.close()
+# c = ModbusClient()
+# c.host("192.168.0.7")
+# c.port(502)
+# c.unit_id(1)
+# # managing TCP sessions with call to c.open()/c.close()
 
 # c.open()
 
+c = ModbusClient(host="192.168.0.7", auto_open=True, auto_close=True)
+c.port(502)
+c.unit_id(1)
 while(1):
     try:
+        print("cetak")
+
+    except:
+        print("gagal")
+
+    time.sleep(2)
+
+    # try:
 
        
-        regs = c.read_input_registers(0, 2)
-        if regs:
-            print(regs)
+    #     regs = c.read_input_registers(0, 2)
+    #     if regs:
+    #         print(regs)
 
-            temp =  regs[0]/100
-            rh = regs[1]/100
+    #         temp =  regs[0]/100
+    #         rh = regs[1]/100
 
-            if rh<75:
-                GPIO.output(relay, GPIO.HIGH)
-                print("MATI")
+    #         if rh<75:
+    #             GPIO.output(relay, GPIO.HIGH)
+    #             print("MATI")
             
-            else:
-                GPIO.output(relay, GPIO.LOW)
-                print("HIDUP")
+    #         else:
+    #             GPIO.output(relay, GPIO.LOW)
+    #             print("HIDUP")
 
 
 
-        else:
-            print("read error")
-            # c.open()
+    #     else:
+    #         print("read error")
+    #         # c.open()
 
-        time.sleep(2)
+    #     time.sleep(2)
       
-    except:
-         print("read error excep")
+    # except:
+    #      print("read error excep")
         # c.close()
 
 
