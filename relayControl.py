@@ -26,6 +26,11 @@ while(1):
         print("cetak")
         regs = c.read_input_registers(0, 2)
 
+        if regs:
+            print(regs)
+        else:
+            print("read error")
+
     except:
         print("gagal")
 
