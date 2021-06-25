@@ -21,7 +21,7 @@ GPIO.setup(relay, GPIO.OUT)
 
 # c.open()
 
-c = ModbusClient(host="192.168.0.7", auto_open=True, auto_close=True,timeout=0.5)
+c = ModbusClient(host="192.168.0.7", auto_open=True, auto_close=True,timeout=0.1)
 c.port(502)
 c.unit_id(1)
 while(1):
