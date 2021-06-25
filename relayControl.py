@@ -38,6 +38,7 @@ while(1):
         print("read error")
 
     time.sleep(2)
+    c.close()
 
 
 
