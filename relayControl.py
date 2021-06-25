@@ -34,6 +34,7 @@ while(1):
 
         if regs:
             print(current_time +" - " + regs)
+            
             temp =  regs[0]/100
             rh = regs[1]/100
 
