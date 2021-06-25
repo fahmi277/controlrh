@@ -13,12 +13,12 @@ c.port(502)
 c.unit_id(1)
 # managing TCP sessions with call to c.open()/c.close()
 
-
+c.open()
 
 while(1):
     try:
 
-        c.open()
+       
         regs = c.read_input_registers(0, 2)
         if regs:
             print(regs)
@@ -38,9 +38,10 @@ while(1):
 
         else:
             print("read error")
+            c.open()
 
         time.sleep(2)
-        c.close()
+      
     except:
         c.close()
 
