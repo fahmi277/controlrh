@@ -23,7 +23,7 @@ c.port(502)
 c.unit_id(1)
 while(1):
     try:
-        print("cetak")
+        # print("cetak")
         regs = c.read_input_registers(0, 2)
 
         if regs:
