@@ -38,12 +38,13 @@ while(1):
 
         else:
             print("read error")
-            c.open()
+            # c.open()
 
         time.sleep(2)
       
     except:
-        c.close()
+         print("read error excep")
+        # c.close()
 
 
 
