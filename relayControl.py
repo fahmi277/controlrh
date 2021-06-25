@@ -38,8 +38,8 @@ while(1):
             else:
                 GPIO.output(relay, GPIO.LOW)
                 print("HIDUP")
-        else:
-            print("read error")
+        # else:
+            # print("read error")
 
     except:
         print("gagal")
