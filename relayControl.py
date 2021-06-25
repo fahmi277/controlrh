@@ -44,7 +44,7 @@ while(1):
     except:
         print("gagal")
 
-    time.sleep(2)
+    time.sleep(1)
 
     # try:
 
