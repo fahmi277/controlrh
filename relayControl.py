@@ -28,6 +28,16 @@ while(1):
 
         if regs:
             print(regs)
+            temp =  regs[0]/100
+            rh = regs[1]/100
+
+            if rh<75:
+                GPIO.output(relay, GPIO.HIGH)
+                print("MATI")
+            
+            else:
+                GPIO.output(relay, GPIO.LOW)
+                print("HIDUP")
         else:
             print("read error")
 
