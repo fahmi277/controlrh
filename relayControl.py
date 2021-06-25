@@ -16,29 +16,33 @@ c.unit_id(1)
 
 
 while(1):
-    c.open()
-    regs = c.read_input_registers(0, 2)
-    if regs:
-        print(regs)
+    try:
 
-        temp =  regs[0]/100
-        rh = regs[1]/100
+        c.open()
+        regs = c.read_input_registers(0, 2)
+        if regs:
+            print(regs)
 
-        if rh<75:
-            GPIO.output(relay, GPIO.HIGH)
-            print("MATI")
-        
+            temp =  regs[0]/100
+            rh = regs[1]/100
+
+            if rh<75:
+                GPIO.output(relay, GPIO.HIGH)
+                print("MATI")
+            
+            else:
+                GPIO.output(relay, GPIO.LOW)
+                print("HIDUP")
+
+
+
         else:
-            GPIO.output(relay, GPIO.LOW)
-            print("HIDUP")
+            print("read error")
 
-
-
-    else:
-        print("read error")
-
-    time.sleep(2)
-    c.close()
+        time.sleep(2)
+        c.close()
+    except:
+        c.close()
 
 
 
