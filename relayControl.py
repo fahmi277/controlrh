@@ -12,15 +12,35 @@ c.host("192.168.0.7")
 c.port(502)
 c.unit_id(1)
 # managing TCP sessions with call to c.open()/c.close()
-c.open()
 
-regs = c.read_input_registers(0, 2)
-if regs:
-    print(regs)
-    print(regs[0])
-    print(regs[1])
-else:
-    print("read error")
+
+
+while(1):
+    c.open()
+    regs = c.read_input_registers(0, 2)
+    if regs:
+        print(regs)
+
+        temp =  regs[0]/100
+        rh = regs[1]/100
+
+        if rh<75:
+            GPIO.output(relay, GPIO.HIGH)
+            print("MATI")
+        
+        else:
+            GPIO.output(relay, GPIO.LOW)
+            print("HIDUP")
+
+
+
+    else:
+        print("read error")
+
+    time.sleep(2)
+
+
+
 
 # while (1):
 #     GPIO.output(relay, GPIO.HIGH)
