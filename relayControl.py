@@ -17,6 +17,8 @@ c.open()
 regs = c.read_input_registers(0, 2)
 if regs:
     print(regs)
+    print(regs[0])
+    print(regs[1])
 else:
     print("read error")
 
