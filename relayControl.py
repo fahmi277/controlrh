@@ -7,13 +7,16 @@ relay = 37
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(relay, GPIO.OUT)
 
-c = ModbusClient()
-c.host("192.168.0.7")
-c.port(502)
+
+c = ModbusClient(host="192.168.0.7", auto_open=True, auto_close=True)
+
+# c = ModbusClient()
+# c.host("192.168.0.7")
+# c.port(502)
 c.unit_id(1)
 # managing TCP sessions with call to c.open()/c.close()
 
-c.open()
+# c.open()
 
 while(1):
     try:
